@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+//option java_package = "com.dev.richardjd.financial";
+option java_multiple_files = true;
+
+package com.dev.richardjd.financial.adapters.in.grpc.generatedfiles;
+
+service FinancialService {
+  rpc Create(FinancialRequest) returns(FinancialResponse);
+  rpc FindById(FindByIdRequest) returns(FinancialResponse);
+  rpc DeleteById(FindByIdRequest) returns(FinancialResponse);
+  rpc FindAll(EmptyRequest) returns(FindAllList);
+}
+
+message EmptyRequest{}
+
+message FindAllList {
+  repeated FinancialResponse financials = 1;
+}
+
+message FindByIdRequest {
+  int32 id = 1;
+}
+
+message FinancialRequest {
+  string description = 1;
+  string month = 2;
+  int32  year = 3;
+  string cashFlowType = 4;
+  double amount = 5;
+}
+
+message FinancialResponse {
+  int64 id = 1;
+  string description = 2;
+  string month = 3;
+  int32  year = 4;
+  string cashFlowType = 5;
+  double amount = 6;
+}

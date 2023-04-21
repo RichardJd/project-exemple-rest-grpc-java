@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    openInView: false
+    database: MYSQL
+    driverClassName: com.mysql.cj.jdbc.Driver
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  datasource:
+    url: jdbc:mysql://localhost/financial-control?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: root
+grpc:
+  server:
+    port: 9000
